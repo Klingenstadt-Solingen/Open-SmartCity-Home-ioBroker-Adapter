@@ -5,6 +5,10 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from))
@@ -21,106 +25,58 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var main_exports = {};
+__export(main_exports, {
+  OpenSmartCityHome: () => OpenSmartCityHome
+});
+module.exports = __toCommonJS(main_exports);
 var utils = __toESM(require("@iobroker/adapter-core"));
+var import_readyHandler = require("./lib/readyHandler");
+var import_messageHandler = require("./lib/messageHandler");
+var import_unloadHandler = require("./lib/unloadHandler");
+var import_mqttHandler = require("./lib/mqttHandler");
 class OpenSmartCityHome extends utils.Adapter {
+  // Helper properties need to be public for the handler
+  sensorToStateIdMap = {};
+  isUnloaded = true;
+  // Instance of the new handler
+  mqttHandler;
+  /**
+   * Constructor
+   *
+   * @param options
+   */
   constructor(options = {}) {
     super({
       ...options,
       name: "open-smart-city-home"
     });
     this.on("ready", this.onReady.bind(this));
-    this.on("stateChange", this.onStateChange.bind(this));
     this.on("unload", this.onUnload.bind(this));
+    this.on("message", this.onMessage.bind(this));
+    this.mqttHandler = new import_mqttHandler.MqttHandler(this);
   }
-  /**
-   * Is called when databases are connected and adapter received configuration.
-   */
   async onReady() {
-    this.log.debug("config option1: ${this.config.option1}");
-    this.log.debug("config option2: ${this.config.option2}");
-    await this.setObjectNotExistsAsync("testVariable", {
-      type: "state",
-      common: {
-        name: "testVariable",
-        type: "boolean",
-        role: "indicator",
-        read: true,
-        write: true
-      },
-      native: {}
-    });
-    this.subscribeStates("testVariable");
-    await this.setState("testVariable", true);
-    await this.setState("testVariable", { val: true, ack: true });
-    await this.setState("testVariable", { val: true, ack: true, expire: 30 });
-    const pwdResult = await this.checkPasswordAsync("admin", "iobroker");
-    this.log.info(`check user admin pw iobroker: ${JSON.stringify(pwdResult)}`);
-    const groupResult = await this.checkGroupAsync("admin", "admin");
-    this.log.info(`check group user admin group admin: ${JSON.stringify(groupResult)}`);
+    this.isUnloaded = false;
+    await (0, import_readyHandler.handleReady)(this);
+    this.mqttHandler.connect();
   }
-  /**
-   * Is called when adapter shuts down - callback has to be called under any circumstances!
-   *
-   * @param callback - Callback function
-   */
-  onUnload(callback) {
-    try {
-      callback();
-    } catch (error) {
-      this.log.error(`Error during unloading: ${error.message}`);
-      callback();
-    }
+  async onMessage(obj) {
+    await (0, import_messageHandler.handleMessage)(this, obj);
   }
-  // If you need to react to object changes, uncomment the following block and the corresponding line in the constructor.
-  // You also need to subscribe to the objects with `this.subscribeObjects`, similar to `this.subscribeStates`.
-  // /**
-  //  * Is called if a subscribed object changes
-  //  */
-  // private onObjectChange(id: string, obj: ioBroker.Object | null | undefined): void {
-  // 	if (obj) {
-  // 		// The object was changed
-  // 		this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-  // 	} else {
-  // 		// The object was deleted
-  // 		this.log.info(`object ${id} deleted`);
-  // 	}
-  // }
-  /**
-   * Is called if a subscribed state changes
-   *
-   * @param id - State ID
-   * @param state - State object
-   */
-  onStateChange(id, state) {
-    if (state) {
-      this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-      if (state.ack === false) {
-        this.log.info(`User command received for ${id}: ${state.val}`);
-      }
-    } else {
-      this.log.info(`state ${id} deleted`);
-    }
+  async onUnload(callback) {
+    this.isUnloaded = true;
+    await (0, import_unloadHandler.handleUnload)(this, callback);
   }
-  // If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
-  // /**
-  //  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
-  //  * Using this method requires "common.messagebox" property to be set to true in io-package.json
-  //  */
-  //
-  // private onMessage(obj: ioBroker.Message): void {
-  // 	if (typeof obj === "object" && obj.message) {
-  // 		if (obj.command === "send") {
-  // 			// e.g. send email or pushover or whatever
-  // 			this.log.info("send command");
-  // 			// Send response in callback if required
-  // 			if (obj.callback) this.sendTo(obj.from, obj.command, "Message received", obj.callback);
-  // 		}
-  // 	}
-  // }
 }
 if (require.main !== module) {
   module.exports = (options) => new OpenSmartCityHome(options);
 } else {
-  (() => new OpenSmartCityHome())();
+  new OpenSmartCityHome();
 }
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  OpenSmartCityHome
+});
 //# sourceMappingURL=main.js.map

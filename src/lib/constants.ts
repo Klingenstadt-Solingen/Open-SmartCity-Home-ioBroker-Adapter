@@ -1,0 +1,9 @@
+export const MQTT_HOST = "159.69.38.127";
+export const MQTT_PORT = 1883;
+export const MQTT_USERNAME = "demo-user";
+export const MQTT_PASSWORD = "demo-password";
+export const MQTT_STATE_TOPIC = "opensmartcityhome/sensor/+/state";
+export const MQTT_STATUS_TOPIC = "opensmartcityhome/station/+/status";
+export const API_URL = "http://159.69.38.127:8888/stations";
+export const API_USER = "client";
+export const API_PASSWORD = "client-password";

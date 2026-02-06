@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/lib/types.ts"],
+  "sourcesContent": ["export interface SensorData {\n\tsensorId: string;\n\tsensorName: string;\n\tsensorUnit: string;\n\tsensorState: number;\n}\n\nexport interface StationData {\n\tstationId: string;\n\tstationName: string;\n\tstationStatus: string;\n\tsensors: SensorData[];\n}\n\nexport interface OpenSmartCityConfig {\n\tstations: Array<{\n\t\tstationId: string;\n\t\tstationName: string;\n\t\trequestingData: boolean; // \"Is it active/sending data?\"\n\t\tstationStatus: string; // \"Can I request data?\"\n\t\tsensors: SensorData[];\n\t}>;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}

@@ -1,26 +1,44 @@
 {
-	"i18n": true,
-	"type": "panel",
-	"items": {
-		"option1": {
-			"type": "checkbox",
-			"label": "option1",
-			"newLine": true,
-			"xs": 12,
-			"sm": 12,
-			"md": 6,
-			"lg": 4,
-			"xl": 4
-		},
-		"option2": {
-			"type": "text",
-			"label": "option2",
-			"newLine": true,
-			"xs": 12,
-			"sm": 12,
-			"md": 6,
-			"lg": 4,
-			"xl": 4
-		}
-	}
+  "i18n": false,
+  "type": "panel",
+  "items": {
+    "stations": {
+      "defaultSendTo": "getStations",
+      "type": "table",
+      "label": {
+        "en": "Available Stations",
+        "de": "Verfügbare Stationen"
+      },
+      "sm": 12,
+      "noDelete": true,
+      "items": [
+        {
+          "attr": "stationName",
+          "type": "text",
+          "readOnly": true,
+          "title": {
+            "en": "Description",
+            "de": "Beschreibung"
+          }
+        },
+        {
+          "attr": "stationStatus",
+          "type": "text",
+          "readOnly": true,
+          "title": {
+            "en": "Status",
+            "de": "Status"
+          }
+        },
+        {
+          "attr": "requestingData",
+          "type": "checkbox",
+          "title": {
+            "en": "Active",
+            "de": "Aktiv"
+          }
+        }
+      ]
+    }
+  }
 }
