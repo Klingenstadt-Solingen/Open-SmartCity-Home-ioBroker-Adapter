@@ -1,0 +1,109 @@
+{
+	"common": {
+		"name": "open-smart-city-home",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"uk": "Початкова версія",
+				"zh-cn": "首次出版"
+			}
+		},
+		"titleLang": {
+			"en": "Open SmartCity Home",
+			"de": "Öffnen Sie SmartCity Home",
+			"ru": "Открыть домашнюю страницу SmartCity",
+			"pt": "Abra a página inicial do SmartCity",
+			"nl": "Open SmartCity Home",
+			"fr": "Ouvrir la maison SmartCity",
+			"it": "Apri Casa SmartCity",
+			"es": "Abrir casa SmartCity",
+			"pl": "Otwórz stronę główną SmartCity",
+			"uk": "Відкрийте SmartCity Home",
+			"zh-cn": "打开智慧城市主页"
+		},
+		"desc": {
+			"en": "Binder for OSCH",
+			"de": "Bindemittel für OSCH",
+			"ru": "Биндер для ОСЧ",
+			"pt": "Fichário para OSCH",
+			"nl": "Bindmiddel voor OSCH",
+			"fr": "Classeur pour OSCH",
+			"it": "Legante per OSCH",
+			"es": "Carpeta para OSCH",
+			"pl": "Spoiwo dla OSCH",
+			"uk": "Біндер для ОСЧ",
+			"zh-cn": "OSCH 粘合剂"
+		},
+		"authors": [
+			"fpac <fpachmann@nedeco.de>"
+		],
+		"keywords": [
+			"template",
+			"automation",
+			"IoT",
+			"integration"
+		],
+		"licenseInformation": {
+			"type": "free",
+			"license": "MIT"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "open-smart-city-home.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/fpac/ioBroker.open-smart-city-home/main/admin/open-smart-city-home.png",
+		"readme": "https://github.com/fpac/ioBroker.open-smart-city-home/blob/main/README.md",
+		"loglevel": "info",
+		"tier": 3,
+		"mode": "daemon",
+		"type": "weather",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "push",
+		"adminUI": {
+			"config": "json",
+			"tab": "materialize"
+		},
+		"adminTab": {
+			"singleton": true,
+			"name": {
+				"en": "Open SmartCity Home",
+				"de": "Öffnen Sie SmartCity Home",
+				"ru": "Открыть домашнюю страницу SmartCity",
+				"pt": "Abra a página inicial do SmartCity",
+				"nl": "Open SmartCity Home",
+				"fr": "Ouvrir la maison SmartCity",
+				"it": "Apri Casa SmartCity",
+				"es": "Abrir casa SmartCity",
+				"pl": "Otwórz stronę główną SmartCity",
+				"uk": "Відкрийте SmartCity Home",
+				"zh-cn": "打开智慧城市主页"
+			},
+			"link": ""
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=6.0.11"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.0.23"
+			}
+		]
+	},
+	"native": {
+		"option1": true,
+		"option2": "42"
+	},
+	"objects": [],
+	"instanceObjects": []
+}
