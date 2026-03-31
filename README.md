@@ -22,8 +22,10 @@ This allows seamless use of sensor data in dashboards, automations, and scripts.
 1. Open **Adapters**
 2. Enable **Expert Mode**
 3. Click the **GitHub icon**
-4. Select **"From GitHub”**
+4. Select **"CUSTOM”**
 5. Enter the repository URL and install
+
+> **Note:** The CLI installation (`iobroker url`) may show `Cannot install ... : 0` and `Process exited with code 25`. This is caused by the repository name not following the ioBroker naming convention (`ioBroker.<adapter-name>`). The error is cosmetic — the adapter is installed successfully. Refresh the adapter list and it will appear.
 
 ### Development Setup
 
