@@ -1,5 +1,9 @@
 # Open SmartCity Home ioBroker Adapter
 
+<div style="display:flex;gap:1%;margin-bottom:20px">
+  <img height="100px" alt="logo" src="logo.svg">
+</div>
+
 ⚠️ **Beta Software**
 This adapter is currently in **beta**. Functionality, configuration flow, and structure may change. Use at your own risk.
 

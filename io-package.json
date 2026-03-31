@@ -29,6 +29,7 @@
     },
     "platform": "Javascript/Node.js",
     "icon": "images/open-smart-city-home.png",
+    "extIcon": "https://raw.githubusercontent.com/Klingenstadt-Solingen/Open-SmartCity-Home-ioBroker-Adapter/development/admin/images/open-smart-city-home.png",
     "enabled": true,
     "loglevel": "info",
     "tier": 3,
