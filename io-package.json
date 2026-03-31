@@ -1,6 +1,6 @@
 {
   "common": {
-    "name": "open-smart-city-home",
+    "name": "open-smartcity-home",
     "version": "1.0.0",
     "news": {
       "1.0.0": {
@@ -25,10 +25,12 @@
     ],
     "licenseInformation": {
       "type": "free",
-      "license": "OSC-1.0"
+      "license": "OSC-1.0",
+      "link": "https://raw.githubusercontent.com/Klingenstadt-Solingen/ioBroker.open-smartcity-home/development/LICENSE"
     },
     "platform": "Javascript/Node.js",
-    "icon": "images/open-smart-city-home.png",
+    "icon": "images/open-smartcity-home.png",
+    "extIcon": "https://raw.githubusercontent.com/Klingenstadt-Solingen/ioBroker.open-smartcity-home/development/icon.png",
     "enabled": true,
     "loglevel": "info",
     "tier": 3,
