@@ -2,9 +2,7 @@ import * as mqtt from "mqtt";
 import { MQTT_USERNAME, MQTT_PASSWORD, MQTT_PORT, MQTT_HOST, MQTT_STATE_TOPIC, MQTT_STATUS_TOPIC } from "./constants";
 import type { OpenSmartCityHome } from "../main"; // Import type from your main file
 
-/**
- *
- */
+/** Handles MQTT connection and message processing for sensor/station updates. */
 export class MqttHandler {
 	private client: mqtt.MqttClient | null = null;
 	private adapter: OpenSmartCityHome;

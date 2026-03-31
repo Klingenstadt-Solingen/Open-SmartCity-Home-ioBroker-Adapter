@@ -1,5 +1,9 @@
 # Open SmartCity Home ioBroker Adapter
 
+<div style="display:flex;gap:1%;margin-bottom:20px">
+  <img height="100px" alt="logo" src="logo.svg">
+</div>
+
 ⚠️ **Beta Software**
 This adapter is currently in **beta**. Functionality, configuration flow, and structure may change. Use at your own risk.
 
@@ -22,8 +26,10 @@ This allows seamless use of sensor data in dashboards, automations, and scripts.
 1. Open **Adapters**
 2. Enable **Expert Mode**
 3. Click the **GitHub icon**
-4. Select **"From GitHub”**
-5. Enter the repository URL and install
+4. Select **"CUSTOM”**
+5. Enter the repository URL: `https://github.com/Klingenstadt-Solingen/ioBroker.open-smartcity-home` and install
+
+> **Note:** When adding the adapter, ioBroker shows a license agreement dialog. The "Accept" button is only selectable after scrolling to the bottom of the license text. If the scrollbar is not visible, resize your browser window until it appears.
 
 ### Development Setup
 
@@ -57,7 +63,7 @@ https://github.com/ioBroker/dev-server#command-line
     cd /tmp
     rm -rf open-smartcity-home-iobroker-adapter
 
-    git clone -b development https://<token-name>:<token>@github.com/Klingenstadt-Solingen/Open-SmartCity-Home-ioBroker-Adapter.git
+    git clone -b development https://<token-name>:<token>@github.com/Klingenstadt-Solingen/ioBroker.open-smartcity-home.git
     cd open-smartcity-home-iobroker-adapter
 
     yarn install

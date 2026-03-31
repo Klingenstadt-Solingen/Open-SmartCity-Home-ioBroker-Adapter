@@ -26,7 +26,7 @@ export class OpenSmartCityHome extends utils.Adapter {
 	public constructor(options: Partial<utils.AdapterOptions> = {}) {
 		super({
 			...options,
-			name: "open-smart-city-home",
+			name: "open-smartcity-home",
 		});
 		this.on("ready", this.onReady.bind(this));
 		this.on("unload", this.onUnload.bind(this));
